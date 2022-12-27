@@ -25,20 +25,37 @@
 <br>
 
 <div class="container">
-  <h6> Pedir un número, mostrar multiplos de 3 desde 1 hasta n.</h6>
+  <h5> 24. Pedir un número, mostrar los números desde n hasta 0.</h5>
 <hr>
 
   <form id="form">
     <div class="mb-3">
-      <label class="form-label" > Escribe un numero <input type="text" id="numero" name="numero"/></label>
+      <label class="form-label" > Escribe un numero <input type="text" id="numero" name="numero" required/></label>
     </div>
-    <button type="submit" class="btn btn-primary" id="boton">
-      Calcular
-    </button>
-  </form>
+<!-- Boton -->
+<button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Calcular
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Resultado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <h6 id="resultado"></h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a href="/src/welcome.html"><button type="button" class="btn btn-primary">Ir a Home</button></a>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
-   <h6 class="container" id="resultado"> Resultado </h6>
+
  
 <script> 
 'use strict'
@@ -51,12 +68,12 @@ function sumatotal(event) {
   const $numero = document.getElementById('numero');
   const numero = $numero.value;
 
+  let restando = '';
   for (let i = numero; i > -1; i--) {
-    console.log(i)
+      restando += i + ', ';
 }
-
+document.getElementById("resultado").innerHTML = (`Los desde ${numero}, hasta 0 son: ${restando}`);
   }
-
 
 </script>  
 

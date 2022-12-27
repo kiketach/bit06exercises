@@ -29,17 +29,35 @@
 <hr>
   <form id="form">
     <div class="mb-3">
-      <label class="form-label" >Escribe tu edad <input type="text" id="edad" name="edad"/></label>
+      <label class="form-label" >Escribe tu edad <input type="text" id="edad" name="edad" /></label>
     </div>
-    <button type="submit" class="btn btn-primary" id="boton">
-      Calcular
-    </button>
-  </form>
-</div>
-<br>
-   <h6 class="container" id="resultado"> Resultado </h6>
+ 
+    <!-- Boton -->
+   <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Calcular
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Resultado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <h6 id="resultado"></h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <a href="/src/welcome.html"><button type="button" class="btn btn-primary">Ir a Home</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ 
  <script> 
-
 'use strict'
   const $form = document.getElementById('form');
   
@@ -48,13 +66,15 @@ $form.addEventListener('submit', mayor);
 function mayor (event) {
   event.preventDefault();
   const $edad = document.getElementById('edad');
-
   const edad = $edad.value;
-  if (edad >= 18) {
+
+  if (edad == null || edad.length == 0){
+    document.getElementById('resultado'). innerHTML='Escribe tu edad por favor';
+  } else if (edad >= 18) {
     document.getElementById('resultado'). innerHTML='Felicidades!. Eres mayor de edad!';
-    } else {
+    } else if (edad <= 17) {
       document.getElementById('resultado'). innerHTML='Aun eres menor de edad! :(';
-  }
+  } 
   };
 
   </script>  

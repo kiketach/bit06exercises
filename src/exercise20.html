@@ -25,14 +25,14 @@
 <br>
 
 <div class="container">
-  <h6> Pedir dos números y el nombre de una operación, mostrar el resultado.</h6>
+  <h5> 20. Pedir dos números y el nombre de una operación, mostrar el resultado.</h5>
 <hr>
 <form id="form">
   <div class="mb-3">
-    <label class="form-label" > Escribe el primer numero <input type="text" id="numero1" name="numero"/></label>
+    <label class="form-label" > Escribe el primer numero <input type="text" id="numero1" name="numero" required/></label>
   </div>
   <div class="mb-3">
-    <label class="form-label" > Escribe el segundo numero <input type="text" id="numero2" name="numero"/></label>
+    <label class="form-label" > Escribe el segundo numero <input type="text" id="numero2" name="numero" required/></label>
   </div>
 
 <form>
@@ -42,13 +42,33 @@
   <br> <input type="checkbox" id="checkbox3"> Multiplicar
   <br> <input type="checkbox" id="checkbox4"> Dividir
 </div>
-  <button type="button" class="btn btn-primary" id="boton" onClick="contarSeleccionados()">
-    Calcular
-  </button>
   </form>
 <br>
-  <h6 class="container" id="resultado"> Resultado </h6>
+<!-- Boton -->
+<button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="contarSeleccionados()" >
+  Calcular
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Resultado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <h6 id="resultado"></h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a href="/src/welcome.html"><button type="button" class="btn btn-primary">Ir a Home</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
+
   <script>
      'use strict'
     const $form = document.getElementById('form');
@@ -56,7 +76,7 @@
     $form.addEventListener('submit', contarSeleccionados);
     
     function contarSeleccionados(event) {
-   
+      
       const $numero1 = document.getElementById('numero1');
       const numero1 = parseInt ($numero1.value);  
       const $numero2 = document.getElementById('numero2');
@@ -66,22 +86,22 @@
     if (document.getElementById('checkbox1').checked)
     {
       const res = numero1 + numero2;
-      document.getElementById('resultado'). innerHTML=(` La suma de ${numero1} con ${numero2} es = ${res}`)
+      document.getElementById('resultado'). innerHTML=(` El resultado de ${numero1} + ${numero2} es = ${res}`)
     }
     if (document.getElementById('checkbox2').checked)
     {
       const res = numero1 - numero2;
-      document.getElementById('resultado'). innerHTML=(` La resta de ${numero1} con ${numero2} es = ${res}`)
+      document.getElementById('resultado'). innerHTML=(` El resultado de ${numero1} - ${numero2} es = ${res}`)
     }
     if (document.getElementById('checkbox3').checked)
     {
       const res = numero1 * numero2;
-      document.getElementById('resultado'). innerHTML=(` La multiplicacion de ${numero1} con ${numero2} es = ${res}`)
+      document.getElementById('resultado'). innerHTML=(` El resultado de ${numero1} * ${numero2} es = ${res}`)
     }
     if (document.getElementById('checkbox4').checked)
     {
       const res = numero1 / numero2;
-      document.getElementById('resultado'). innerHTML=(` La division de ${numero1} con ${numero2} es = ${res}`)
+      document.getElementById('resultado'). innerHTML=(` El resultado de ${numero1} / ${numero2} es = ${res}`)
     }
     }
     </script>
