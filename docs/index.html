@@ -9,7 +9,7 @@
       rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"/>
-    <link rel="icon" href="/src/imgs/jss.png">
+    <link rel="icon" href="/docs/imgs/jss.png">
   </head>
   <!-- NAV BAR-->
   <nav class="navbar navbar-light bg-light">
@@ -130,7 +130,7 @@ function checkPermitido(obj) {
       parseInt(obj.password) === permitido.password &&
       obj.accept === permitido.accept
     ) {
-      window.open('http://127.0.0.1:5500/src/welcome.html', '_self');
+      window.open('http://127.0.0.1:5500/docs/welcome.html', '_self');
     } else {
       alert(
         'Usuario no registrado. Intenta nuevamente!',
